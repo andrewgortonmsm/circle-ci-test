@@ -1,4 +1,6 @@
-version: 2.0
+version: 2.1
+orbs:
+  gradle: circleci/gradle@2.2.0
 jobs:
   build:
     docker:
@@ -8,5 +10,6 @@ jobs:
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
+      - gradle/test
       - run: echo "Hello World"
 
